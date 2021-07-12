@@ -11,4 +11,8 @@
 ![1](https://user-images.githubusercontent.com/85693144/125360768-76208200-e3c0-11eb-8553-3e0fedbb8df7.jpg)
 <hr>
 
-And here are the pictures of the chatbot
+And here are the pictures of the chatbot :
+
+![1 1](https://user-images.githubusercontent.com/85693144/125361006-d0b9de00-e3c0-11eb-838b-8219966d6b23.jpg)
+
+
