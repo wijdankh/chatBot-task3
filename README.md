@@ -5,9 +5,10 @@
 
 * we created it by Watson Assistant - IBM Cloud
 ```
-* we created 3 intents 
-![Algorithm schema](https://github.com/wijdankh/chatBot-task3/blob/main/1.jpg)
-<hr>
+* we created 4 intents 
+
 ```
+![1](https://user-images.githubusercontent.com/85693144/125360768-76208200-e3c0-11eb-8553-3e0fedbb8df7.jpg)
+<hr>
 
 And here are the pictures of the chatbot
