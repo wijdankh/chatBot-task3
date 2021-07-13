@@ -1,0 +1,398 @@
+{
+  "intents": [
+    {
+      "intent": "Recepion",
+      "examples": [
+        {
+          "text": "can I enter ?"
+        },
+        {
+          "text": "When will the graduation ceremony starts ؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "thanks",
+      "examples": [
+        {
+          "text": "thank"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thank you very much"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "theEnd",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "bye bye"
+        },
+        {
+          "text": "good"
+        },
+        {
+          "text": "good bye"
+        },
+        {
+          "text": "poor"
+        },
+        {
+          "text": "see you"
+        },
+        {
+          "text": "see you later"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "welcom",
+      "examples": [
+        {
+          "text": "good day"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "my name is aidan"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_8_1625559847975",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What is the right time for you to come? 9 am or 4 pm"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_7_1625562930957",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1625562930963",
+      "previous_sibling": "handler_9_1625562930963"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What day do you choose to attend the ceremony? Tuesday or Wednesday "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_4_1625562759785",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1625562759821",
+      "previous_sibling": "handler_5_1625562759821"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "title": "What is your evaluation of my service? Choose from 1-3",
+            "options": [
+              {
+                "label": "1-poor",
+                "value": {
+                  "input": {
+                    "text": "poor"
+                  }
+                }
+              },
+              {
+                "label": "2-average",
+                "value": {
+                  "input": {
+                    "text": "average"
+                  }
+                }
+              },
+              {
+                "label": "3-GOOD",
+                "value": {
+                  "input": {
+                    "text": "GOOD"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_9_1626071213314",
+      "disabled": true,
+      "event_name": "focus",
+      "dialog_node": "handler_1_1626071968900"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1625562759785",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_5_1625562759821"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1625562930957",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_9_1625562930963"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "please come in"
+              },
+              {
+                "text": "Please come in, we will be happy to serve you"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Recepion",
+      "dialog_node": "node_2_1625562366414"
+    },
+    {
+      "type": "standard",
+      "title": "welcom",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi , I am very happy to see you."
+              },
+              {
+                "text": "Welcome, how can i help you !"
+              },
+              {
+                "text": "Hi , do you need help ?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#welcom",
+      "dialog_node": "node_8_1625559847975",
+      "previous_sibling": "node_9_1626071213314"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "you are welcome!"
+              },
+              {
+                "text": "no problem"
+              },
+              {
+                "text": "not at all"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#thanks",
+      "dialog_node": "node_8_1625560637301",
+      "previous_sibling": "node_2_1625562366414"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "title": "What is your evaluation of my service? ",
+            "options": [
+              {
+                "label": "GOOD",
+                "value": {
+                  "input": {
+                    "text": "GOOD"
+                  }
+                }
+              },
+              {
+                "label": "AVERAGE",
+                "value": {
+                  "input": {
+                    "text": "AVERAGE"
+                  }
+                }
+              },
+              {
+                "label": "POOR",
+                "value": {
+                  "input": {
+                    "text": "POOR"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          },
+          {
+            "values": [
+              {
+                "text": "have a good day"
+              },
+              {
+                "text": "Take care"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#theEnd",
+      "dialog_node": "node_9_1626071213314",
+      "previous_sibling": "node_8_1625560637301"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1625562366414",
+      "variable": "$date",
+      "dialog_node": "slot_4_1625562759785"
+    },
+    {
+      "type": "slot",
+      "parent": "node_2_1625562366414",
+      "variable": "$time",
+      "dialog_node": "slot_7_1625562930957",
+      "previous_sibling": "slot_4_1625562759785"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "GOOD"
+    }
+  ],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "talk",
+  "language": "en",
+  "description": ""
+}
